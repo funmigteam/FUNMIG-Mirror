@@ -1,0 +1,20 @@
+{
+  "id": "2026-09-22-350gb",
+  "data_root": "/media/arshia/New Volume1/funmig-mirror",
+  "payload_limit_bytes": 330000000000,
+  "interface_limit_bytes": 345000000000,
+  "interface": "enp2s0",
+  "minimum_free_bytes": 50000000000,
+  "budgets_bytes": {"pypi": 70000000000, "npm": 25000000000, "debian": 105000000000, "ubuntu": 120000000000},
+  "pypi_versions": 3,
+  "npm_versions": 2,
+  "max_packages": 2000,
+  "apt": [
+    {"registry": "debian", "base": "https://deb.debian.org/debian", "suite": "trixie", "components": ["main", "contrib", "non-free", "non-free-firmware"], "keyring": "/usr/share/keyrings/debian-archive-keyring.gpg"},
+    {"registry": "debian", "base": "https://deb.debian.org/debian", "suite": "trixie-updates", "components": ["main", "contrib", "non-free", "non-free-firmware"], "keyring": "/usr/share/keyrings/debian-archive-keyring.gpg"},
+    {"registry": "debian", "base": "https://security.debian.org/debian-security", "suite": "trixie-security", "components": ["main", "contrib", "non-free", "non-free-firmware"], "keyring": "/usr/share/keyrings/debian-archive-keyring.gpg"},
+    {"registry": "ubuntu", "base": "https://archive.ubuntu.com/ubuntu", "suite": "noble", "components": ["main", "restricted", "universe", "multiverse"], "keyring": "ubuntu.gpg"},
+    {"registry": "ubuntu", "base": "https://archive.ubuntu.com/ubuntu", "suite": "noble-updates", "components": ["main", "restricted", "universe", "multiverse"], "keyring": "ubuntu.gpg"},
+    {"registry": "ubuntu", "base": "https://security.ubuntu.com/ubuntu", "suite": "noble-security", "components": ["main", "restricted", "universe", "multiverse"], "keyring": "ubuntu.gpg"}
+  ]
+}

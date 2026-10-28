@@ -1,0 +1,39 @@
+{% load static %}
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="دانلود آفلاین مخزن‌های منتخب GitHub از Funmig Mirror">
+  <title>مخزن‌های GitHub | Funmig</title>
+  <link rel="stylesheet" href="{% static 'core/mirrors.css' %}">
+  <link rel="stylesheet" href="{% static 'core/repositories.css' %}">
+</head>
+<body>
+  <header class="page mirror-nav">
+    <a class="logo" href="/">funmig<span>.mirror</span></a>
+    <nav><a href="/">خانه</a><a href="/guides/">راهنماها</a><a href="/mirrors/">میرورها</a></nav>
+  </header>
+  <main class="page">
+    <section class="catalog-head repository-head">
+      <div><h1>مخزن‌های GitHub</h1><p>سورس پروژه‌های منتخب به‌صورت فایل ZIP روی سرور نگهداری می‌شود و بدون نیاز به اتصال مستقیم به GitHub قابل دانلود است.</p></div>
+      <span class="repo-count">{{ total }} مخزن آماده</span>
+    </section>
+    {% if repositories %}
+      <section class="repository-grid">
+        {% for repo in repositories %}
+          <article class="repository-card">
+            <div class="repo-top"><span class="github-mark">GH</span><div><h2>{{ repo.title }}</h2><code>{{ repo.filename }}</code></div></div>
+            <p>{{ repo.description }}</p>
+            <div class="use-case"><span>کاربرد</span><strong>{{ repo.use_case }}</strong></div>
+            <footer><span>{{ repo.size }}</span><a href="{{ repo.download_url }}">دانلود ZIP ↓</a></footer>
+          </article>
+        {% endfor %}
+      </section>
+    {% else %}
+      <section class="empty-state"><h2>هنوز مخزنی موجود نیست</h2><p>فایل‌های ZIP را داخل پوشهٔ Git Repo در Volume 1 قرار دهید تا خودکار در این صفحه نمایش داده شوند.</p></section>
+    {% endif %}
+  </main>
+  {% include 'core/partials/funmig_credit.html' %}
+</body>
+</html>

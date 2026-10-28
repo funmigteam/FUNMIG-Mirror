@@ -1,0 +1,54 @@
+{
+  "version": 1,
+  "data_root": "/media/arshia/New Volume1/funmig-mirror/repositories",
+  "state_root": "/media/arshia/New Volume1/funmig-mirror/sync-state",
+  "approval_file": "/etc/funmig-apps/mirror-downloads.approved",
+  "hard_limit_gib": 450,
+  "reserve_gib": 50,
+  "registries": {
+    "debian": {
+      "enabled": true,
+      "budget_gib": 120,
+      "tool": "debmirror",
+      "host": "deb.debian.org",
+      "root": "/debian",
+      "method": "http",
+      "architectures": ["amd64"],
+      "components": ["main", "contrib", "non-free", "non-free-firmware"],
+      "suites": ["bookworm", "bookworm-updates", "bookworm-backports", "trixie", "trixie-updates", "trixie-backports"],
+      "include_sources": false
+    },
+    "ubuntu": {
+      "enabled": true,
+      "budget_gib": 180,
+      "tool": "debmirror",
+      "host": "archive.ubuntu.com",
+      "root": "/ubuntu",
+      "method": "http",
+      "architectures": ["amd64"],
+      "components": ["main", "restricted", "universe", "multiverse"],
+      "suites": ["jammy", "jammy-updates", "jammy-backports", "jammy-security", "noble", "noble-updates", "noble-backports", "noble-security", "resolute", "resolute-updates", "resolute-backports", "resolute-security"],
+      "include_sources": false
+    },
+    "pypi": {
+      "enabled": true,
+      "budget_gib": 120,
+      "tool": "django-prefetch",
+      "storage_root": "/media/arshia/New Volume1/funmig-mirror/storage",
+      "package_list": "sync/lists/pypi-top.txt",
+      "versions_per_package": 3,
+      "formats": ["sdist", "linux_x86_64_wheel", "universal_wheel"],
+      "large_packages": ["torch", "torchvision", "torchaudio", "tensorflow", "jax", "jaxlib"],
+      "large_package_budget_gib": 45
+    },
+    "npm": {
+      "enabled": true,
+      "budget_gib": 30,
+      "tool": "npm-prefetch",
+      "registry": "https://registry.npmjs.org",
+      "package_list": "sync/lists/npm-top.txt",
+      "versions_per_package": 2,
+      "verify_integrity": true
+    }
+  }
+}
